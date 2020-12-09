@@ -1,2 +1,4 @@
 - name: 基本ツールをインストール
   include_tasks: tasks/basic/basic.yaml
+- name: dockerをインストール
+  include_tasks: tasks/docker/docker.yaml
