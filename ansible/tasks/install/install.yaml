@@ -1,0 +1,2 @@
+- name: 基本ツールをインストール
+  include_tasks: tasks/basic/basic.yaml
