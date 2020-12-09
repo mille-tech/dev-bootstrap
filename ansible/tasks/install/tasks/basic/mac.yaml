@@ -1,2 +1,11 @@
-- name: hello Mac
-  shell: echo hello Mac
+- name: brew経由のインストール
+  block:
+    - name: brewで最低限必要なものをインストール
+      homebrew:
+        name: "{{ item }}"
+        state: present
+        update_homebrew: yes
+      loop:
+        - git
+        - wget
+        - curl
