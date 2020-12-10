@@ -10,5 +10,5 @@
 \*TODO 正式に決まったら URL を変更する
 
 ```console
-u=https://raw.githubusercontent.com/qwerty2501/working-environment-bootstrap/master/bootstrap.sh&&((command -v curl&&curl $u)||(command -v wget&&wget -qO - $u))|bash
+u=https://raw.githubusercontent.com/qwerty2501/working-environment-bootstrap/master/bootstrap.sh&&b=$(mktemp -u)&&((command -v curl&&curl -o $b $u)||(command -v wget&&wget -qO $b $u))&&bash $b
 ```
