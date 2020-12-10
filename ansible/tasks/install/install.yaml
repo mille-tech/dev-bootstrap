@@ -2,3 +2,5 @@
   include_tasks: tasks/basic/basic.yaml
 - name: dockerをインストール
   include_tasks: tasks/docker/docker.yaml
+- name: gcloudをインストール
+  include_tasks: tasks/gcloud/gcloud.yaml
