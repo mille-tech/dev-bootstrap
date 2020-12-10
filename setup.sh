@@ -24,3 +24,9 @@ ansible-galaxy install markosamuli.asdf
 echo "必要なツールをインストールします。管理者権限が必要です"
 ansible-playbook ansible/install.yaml --ask-become-pass
 
+
+
+echo "configの設定をしますか？この変更はユーザー設定を変更します。"
+echo -n "Y[es]/n[o]"
+read modify_config
+echo $modify_config
