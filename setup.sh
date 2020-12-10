@@ -27,7 +27,7 @@ ansible-playbook ansible/install.yaml --ask-become-pass
 
 
 echo "各種configの設定をしますか？この変更はユーザー設定を変更します。"
-echo -n "Y[es]/n[o]"
+echo -n "Y[es]/n[o]:"
 read modify_config
 
 
