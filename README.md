@@ -7,6 +7,8 @@
 
 1. 下記コマンドをターミナル上で実行してください。
 
+\*TODO 正式に決まったら URL を変更する
+
 ```console
-bootstrap_url="https://raw.githubusercontent.com/qwerty2501/working-environment-bootstrap/master/bootstrap.sh" && (command -v curl 2>&1 && curl $bootstrap_url | bash) || (command -v wget 2>&1 && wget -q -O - $bootstrap_url | bash)
+url="https://raw.githubusercontent.com/qwerty2501/working-environment-bootstrap/master/bootstrap.sh" && (command -v curl 2>&1 && curl $url | bash) || (command -v wget 2>&1 && wget -q -O - $url | bash)
 ```
