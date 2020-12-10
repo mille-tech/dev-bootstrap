@@ -35,3 +35,10 @@
         name: docker-ce
         state: present
         update_cache: true
+
+    - name: docker group作成
+      become: true
+      shell: groupadd docker
+
+    - name: 現行ユーザをdockerグループに所属させる
+      shell: "gpasswd -a $USER docker"
