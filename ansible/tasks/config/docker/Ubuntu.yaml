@@ -3,6 +3,11 @@
   ignore_errors: true
   shell: groupadd docker
 
+- name: get the username running the deploy
+  become: false
+  local_action: command whoami
+  register: username_on_the_host
+
 - name: 現行ユーザをdockerグループに所属させる
   become: true
-  shell: "gpasswd -a $USER docker"
+  shell: "gpasswd -a {{ username_on_the_host }} docker"
