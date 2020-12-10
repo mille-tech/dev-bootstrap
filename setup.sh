@@ -20,4 +20,6 @@ else
 fi
 
 ansible-galaxy install markosamuli.asdf
-ansible-playbook ansible/setup.yaml --ask-become-pass
+
+echo "必要なツールをインストールします。管理者権限が必要です"
+ansible-playbook ansible/install.yaml --ask-become-pass

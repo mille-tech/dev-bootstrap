@@ -1,6 +1,0 @@
-- name: 基本ツールをインストール
-  include_tasks: basic/basic.yaml
-- name: dockerをインストール
-  include_tasks: docker/docker.yaml
-- name: gcloudをインストール
-  include_tasks: gcloud/gcloud.yaml
