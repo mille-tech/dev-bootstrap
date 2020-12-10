@@ -26,5 +26,5 @@ fi
 
 unzip -d $extract_dir $zip_file
 
-$wd/setup.sh
+bash $wd/setup.sh
 
