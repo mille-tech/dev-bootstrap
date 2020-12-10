@@ -19,5 +19,5 @@ else
 	exit 1
 fi
 
-ansible-galaxy install cimon-io.asdf
+ansible-galaxy install markosamuli.asdf
 ansible-playbook ansible/setup.yaml --ask-become-pass

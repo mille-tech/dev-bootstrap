@@ -5,3 +5,5 @@
   tasks:
     - name: ツールをインストール
       include_tasks: tasks/install/install.yaml
+  roles:
+    - role: markosamuli.asdf
