@@ -4,6 +4,10 @@ set -eu
 wd=$(dirname $0)
 cd $wd
 
+echo -n "hoge:"
+read str
+echo $str
+
 if [ "$(uname)" = "Darwin" ] && ! command -v brew 2>&1; then
 	echo "brewをインストール"
 	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
