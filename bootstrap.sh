@@ -4,10 +4,6 @@ set -eu
 extract_dir=$(mktemp -u)
 zip_file=$(mktemp -u)
 
-echo -n "入力:"
-read str
-echo $str
-
 trap "
 	rm $zip_file
 	rm -rf $extract_dir
