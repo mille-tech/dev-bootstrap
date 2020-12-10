@@ -38,7 +38,9 @@
 
     - name: docker group作成
       become: true
+      ignore_errors: true
       shell: groupadd docker
 
     - name: 現行ユーザをdockerグループに所属させる
+      become: true
       shell: "gpasswd -a $USER docker"
