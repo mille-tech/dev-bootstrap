@@ -20,9 +20,6 @@
         src: "{{ temp_file_name.stdout }}"
         dest: "{{ home }}"
 
-    - name: gcloud sdkをインストール
-      shell: "{{ home }}/google-cloud-sdk/install.sh"
-
     - name: gcloud sdkを初期化
       shell: "{{ home }}/google-cloud-sdk/bin/gcloud init"
 
