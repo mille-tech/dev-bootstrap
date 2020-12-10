@@ -1,3 +1,8 @@
+- name: dockerインストール確認
+  shell: command -v docker 2>&1
+  ignore_errors: true
+  register: docker_install
+
 - name: dockerをインストール
   block:
     - include_tasks: ubuntu.yaml
@@ -6,3 +11,5 @@
     - include_tasks: mac.yaml
       when:
         - ansible_distribution == "MacOSX"
+  when:
+    - docker_install.stdout == ""
