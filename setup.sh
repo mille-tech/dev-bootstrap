@@ -23,3 +23,8 @@ ansible-galaxy install markosamuli.asdf
 
 echo "必要なツールをインストールします。管理者権限が必要です"
 ansible-playbook ansible/install.yaml --ask-become-pass
+
+
+echo -n "入力:"
+read str
+echo $str
