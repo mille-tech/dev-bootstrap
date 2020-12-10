@@ -1,0 +1,2 @@
+- name: gcloud sdkをインストール
+  shell: "{{ home }}/google-cloud-sdk/install.sh --command-completion true --path-update true --quiet"

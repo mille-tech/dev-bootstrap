@@ -26,7 +26,15 @@ ansible-playbook ansible/install.yaml --ask-become-pass
 
 
 
-echo "configの設定をしますか？この変更はユーザー設定を変更します。"
+echo "各種configの設定をしますか？この変更はユーザー設定を変更します。"
 echo -n "Y[es]/n[o]"
 read modify_config
-echo $modify_config
+
+
+case $modify_config in
+	Y|Yes) echo "configの設定を行います"
+		ansible-playbook ansible/config.yaml --ask-become-pass ;;
+
+	*) echo "configの設定をキャンセルしました" ;;
+
+esac
