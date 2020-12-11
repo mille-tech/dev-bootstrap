@@ -1,10 +1,4 @@
-- hosts: localhost
-  vars:
-    home: "$HOME"
-  tasks:
-    - name: dockerの設定
-      include_tasks: tasks/config/docker/docker.yaml
-    - name: gcloudの設定
-      include_tasks: tasks/config/gcloud/gcloud.yaml
-  roles:
-    - role: markosamuli.asdf
+- name: dockerの設定
+  include_tasks: tasks/config/docker/docker.yaml
+- name: gcloudの設定
+  include_tasks: tasks/config/gcloud/gcloud.yaml

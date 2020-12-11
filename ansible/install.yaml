@@ -1,13 +1,6 @@
-- hosts: localhost
-  vars:
-    home: "$HOME"
-  tasks:
-    - name: 基本ツールをインストール
-      include_tasks: tasks/install/basic/basic.yaml
-    - name: dockerをインストール
-      include_tasks: tasks/install/docker/docker.yaml
-    - name: gcloudをインストール
-      include_tasks: tasks/install/gcloud/gcloud.yaml
-  roles:
-    - role: markosamuli.asdf
-      asdf_init_shell: false
+- name: 基本ツールをインストール
+  include_tasks: tasks/install/basic/basic.yaml
+- name: dockerをインストール
+  include_tasks: tasks/install/docker/docker.yaml
+- name: gcloudをインストール
+  include_tasks: tasks/install/gcloud/gcloud.yaml

@@ -21,8 +21,6 @@ fi
 
 ansible-galaxy install markosamuli.asdf
 
-echo "必要なツールをインストールします。管理者権限が必要です"
-ansible-playbook ansible/install.yaml --ask-become-pass
 
 
 
@@ -31,10 +29,15 @@ echo -n "Y[es]/n[o]:"
 read modify_config
 
 
+set_config=false
+
 case $modify_config in
 	Y|Yes) echo "configの設定を行います"
-		ansible-playbook ansible/config.yaml --ask-become-pass ;;
+		set_config=true;;
 
-	*) echo "configの設定をキャンセルしました" ;;
+	*) echo "configの設定をキャンセルしました"
+		set_config=false;;
 
 esac
+echo "必要なツールをインストールします。管理者権限が必要です"
+ansible-playbook ansible/setup.yaml --ask-become-pass --extra-vars="set_config=$set_config"
