@@ -2,8 +2,10 @@
   vars:
     home: "$HOME"
   tasks:
-    - include_tasks: install.yaml
-    - include_tasks: config.yaml
+    - name: 必要なツールをインストール
+      include_tasks: install.yaml
+    - name: コンフィグの設定
+      include_tasks: config.yaml
       when:
         - set_config == true
   roles:
