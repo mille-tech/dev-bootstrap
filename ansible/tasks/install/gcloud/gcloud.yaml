@@ -20,9 +20,6 @@
         src: "{{ temp_file_name.stdout }}"
         dest: "{{ home }}"
 
-    - name: gcloud sdkを初期化
-      shell: "{{ home }}/google-cloud-sdk/bin/gcloud init"
-
     - name: gcloudコンポーネントアップデートを実行
       shell: "{{ home }}/google-cloud-sdk/bin/gcloud components update --quiet"
   when:
