@@ -7,7 +7,7 @@
     - name: コンフィグの設定
       include_tasks: config.yaml
       when:
-        - set_config == true
+        - set_config == "true"
   roles:
     - role: markosamuli.asdf
       asdf_init_shell: "{{ set_config }}"
