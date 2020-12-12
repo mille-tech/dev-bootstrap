@@ -1,10 +1,13 @@
 - name: brew経由のインストール
   block:
+    - name: brewをupdate
+      homebrew:
+        update_homebrew: yes
+
     - name: brewで最低限必要なものをインストール
       homebrew:
         name: "{{ item }}"
         state: present
-        update_homebrew: yes
       loop:
         - git
         - wget
@@ -13,7 +16,8 @@
 
 - name: brew cask経由のインストール
   homebrew:
-    homebrew_cask: "{{ item }}"
+    homebrew_cask:
+      name: "{{ item }}"
   loop:
     - docker
     - google-chrome
