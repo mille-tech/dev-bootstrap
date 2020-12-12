@@ -17,6 +17,8 @@
   loop:
     - url: https://download.docker.com/linux/ubuntu/gpg
       state: present
+    - url: https://dl-ssl.google.com/linux/linux_signing_key.pub
+      state: present
 
 - shell: lsb_release -cs
   ignore_errors: true
@@ -32,6 +34,8 @@
   loop:
     - repo: "deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ lsb_release.stdout }} stable"
       state: present
+    - repo: "deb http://dl.google.com/linux/chrome/deb/ stable main"
+      stable: present
 
 - name: aptで最低限必要なものをインストール
   become: true
@@ -42,4 +46,5 @@
       - curl
       - tar
       - docker-ce
+      - google-chrome-stable
     update_cache: true
