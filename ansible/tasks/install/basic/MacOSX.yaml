@@ -10,3 +10,4 @@
         - wget
         - curl
         - gnu-tar
+        - cask
