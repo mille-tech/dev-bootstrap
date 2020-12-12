@@ -9,14 +9,9 @@
         name: "{{ item }}"
         state: present
       loop:
+        - google-chrome
+        - docker
         - git
         - wget
         - curl
         - gnu-tar
-
-- name: brew cask経由のインストール
-  homebrew_cask:
-    name: "{{ item }}"
-  loop:
-    - docker
-    - google-chrome
