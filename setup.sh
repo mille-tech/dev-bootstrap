@@ -29,11 +29,11 @@ if [ "$(uname)" = "Darwin" ] && ! command -v brew 2>&1; then
 fi
 
 echo "ansibleをインストール"
-if command -v apt 2>&1; then
+if [ "$(uname)" = "Darwin" ]; then
+	brew install ansible
+elif command -v apt 2>&1; then
 	sudo apt update
 	sudo apt install -y ansible
-elif command -v brew 2>&1; then
-	brew install ansible
 else
 	echo "対応していない環境です"
 	exit 1
