@@ -1,0 +1,8 @@
+name: install_test
+on: [push, pull_request]
+jobs:
+  install_test_ubuntu:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+      - run: ./setup.sh --modify-config Yes --no-ask-become-pass
