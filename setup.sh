@@ -30,6 +30,7 @@ fi
 
 echo "ansibleをインストール"
 if [ "$(uname)" = "Darwin" ]; then
+	brew update
 	brew install ansible
 elif command -v apt 2>&1; then
 	sudo apt update
