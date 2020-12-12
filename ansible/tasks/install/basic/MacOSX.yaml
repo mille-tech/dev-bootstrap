@@ -15,9 +15,8 @@
         - gnu-tar
 
 - name: brew cask経由のインストール
-  homebrew:
-    homebrew_cask:
-      name: "{{ item }}"
+  homebrew_cask:
+    name: "{{ item }}"
   loop:
     - docker
     - google-chrome
