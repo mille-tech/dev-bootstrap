@@ -1,11 +1,11 @@
 name: install_test
 on: [push, pull_request]
 jobs:
-  install_test_shell:
+  install_test:
     strategy:
       matrix:
-        os: [macos-10.15]
+        os: [macos-10.15, ubuntu-20.04]
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v2
-      - uses: mxschmitt/action-tmate@v3
+      - run: ./setup.sh --modify-config Yes --no-ask-become-pass --force-install
