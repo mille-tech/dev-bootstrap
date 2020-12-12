@@ -9,5 +9,4 @@
           - wget
           - curl
           - gnu-tar
-        ignore_errors: true
         update_homebrew: true
