@@ -11,7 +11,7 @@
 
 - name: brew cask経由のインストール
   block:
-    - name: brewで最低限必要なものをインストール
+    - name: brew caskで最低限必要なものをインストール
       homebrew_cask:
         name:
           - docker
