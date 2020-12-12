@@ -11,6 +11,7 @@ fi
 
 echo "ansibleをインストール"
 if command -v apt 2>&1; then
+	sudo apt update
 	sudo apt install -y ansible
 elif command -v brew 2>&1; then
 	brew install ansible
