@@ -1,12 +1,46 @@
-- name: apt経由のインストール
-  block:
-    - name: aptで最低限必要なものをインストール
-      become: true
-      apt:
-        name: "{{ item }}"
-        update_cache: true
-      loop:
-        - git
-        - wget
-        - curl
-        - tar
+- name: repository追加に必要なツールをインストール
+  become: true
+  apt:
+    name: "{{ item }}"
+    update_cache: true
+  loop:
+    - apt-transport-https
+    - ca-certificates
+    - gnupg-agent
+    - software-properties-common
+
+- name: apt keyを追加
+  become: true
+  apt_key:
+    url: "{{ item.url }}"
+    state: "{{ item.state }}"
+  loop:
+    - url: https://download.docker.com/linux/ubuntu/gpg
+      state: present
+
+- name: lsb_releaseを宣言
+  shell: lsb_release -cs
+  ignore_errors: true
+  register: lsb_release
+  no_log: true
+
+- name: dockerのapt repositoryを追加
+  become: true
+  apt_repository:
+    update_cache: true
+    repo: "{{ item.repo }}"
+    state: "{{ item.state }}"
+  loop:
+    - repo: "deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ lsb_release.stdout }} stable"
+      state: present
+
+- name: aptで最低限必要なものをインストール
+  become: true
+  apt:
+    pkg:
+      - git
+      - wget
+      - curl
+      - tar
+      - docker-ce
+    update_cache: true
