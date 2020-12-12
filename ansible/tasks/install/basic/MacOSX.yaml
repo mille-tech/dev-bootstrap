@@ -13,4 +13,7 @@
 
 - name: brew cask経由のインストール
   homebrew:
-    name: docker
+    homebrew_cask: "{{ item }}"
+  loop:
+    - docker
+    - google-chrome
