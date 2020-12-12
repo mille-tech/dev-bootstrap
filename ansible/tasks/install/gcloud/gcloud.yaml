@@ -1,5 +1,5 @@
 - name: gcloudインストール確認
-  shell: "command -v gcloud 2>&1 || {{ force_install }}"
+  shell: command -v gcloud 2>&1
   ignore_errors: true
   register: gcloud_install
 
@@ -23,4 +23,4 @@
     - name: gcloudコンポーネントアップデートを実行
       shell: "{{ home }}/google-cloud-sdk/bin/gcloud components update --quiet"
   when:
-    - gcloud_install.stdout == ""
+    - gcloud_install.stdout == "" or force_install == "true"

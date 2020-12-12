@@ -1,9 +1,9 @@
 - name: dockerインストール確認
-  shell: "command -v docker 2>&1 || {{ force_install }}"
+  shell: command -v docker 2>&1
   ignore_errors: true
   register: docker_install
 
 - name: dockerをインストール
   include_tasks: "{{ ansible_distribution }}.yaml"
   when:
-    - docker_install.stdout == ""
+    - docker_install.stdout == "" or force_install == "true"
