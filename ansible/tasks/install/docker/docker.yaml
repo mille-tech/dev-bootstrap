@@ -1,5 +1,5 @@
 - name: dockerインストール確認
-  shell: command -v docker 2>&1
+  shell: command -v dockere 2>&1
   ignore_errors: true
   register: docker_install
 
