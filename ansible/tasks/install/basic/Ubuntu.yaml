@@ -18,8 +18,7 @@
     - url: https://download.docker.com/linux/ubuntu/gpg
       state: present
 
-- name: lsb_releaseを宣言
-  shell: lsb_release -cs
+- shell: lsb_release -cs
   ignore_errors: true
   register: lsb_release
   no_log: true
