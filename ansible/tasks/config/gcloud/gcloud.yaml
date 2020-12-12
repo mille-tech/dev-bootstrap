@@ -2,4 +2,4 @@
   shell: "{{ home }}/google-cloud-sdk/install.sh --command-completion true --path-update true --quiet"
 
 - name: gcloud sdkを初期化
-  shell: "{{ home }}/google-cloud-sdk/bin/gcloud init"
+  shell: /bin/bash -lc "echo -e 'n\n' | {{ home }}/google-cloud-sdk/bin/gcloud init --console-only --skip-diagnostics"
