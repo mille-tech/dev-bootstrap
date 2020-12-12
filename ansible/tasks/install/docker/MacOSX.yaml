@@ -1,3 +1,0 @@
-- name: brew caskでdockerインストール
-  homebrew:
-    name: docker

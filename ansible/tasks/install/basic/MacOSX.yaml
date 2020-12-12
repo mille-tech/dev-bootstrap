@@ -2,11 +2,21 @@
   block:
     - name: brewで最低限必要なものをインストール
       homebrew:
-        name: "{{ item }}"
+        name:
+          - git
+          - wget
+          - curl
+          - gnu-tar
+        update_homebrew: true
+
+- name: brew cask経由のインストール
+  block:
+    - name: brew caskで最低限必要なものをインストール
+      homebrew_cask:
+        name:
+          - docker
         state: present
-        update_homebrew: yes
-      loop:
-        - git
-        - wget
-        - curl
-        - gnu-tar
+
+- name: なぜかansibleからgoogle cromeをbrew caskでインストールしようとするとエラーになるのでshellで実行
+  shell: brew install --cask google-chrome
+  ignore_errors: true
