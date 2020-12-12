@@ -1,21 +1,3 @@
-- name: 直接ダウンロードしてインストール
-  vars:
-    app_name: "Docker"
-    download_url: "https://desktop.docker.com/mac/stable/{{ app_name }}.dmg"
-  block:
-    - shell: mktemp -u
-      register: temp_file_name
-
-    - name: Dockerをダウンロード
-      get_url: url={{ download_url }} dest={{ temp_file_name.stdout }}.dmg
-
-    - name: アプリケーションをマウントする
-      shell: hdiutil attach {{ temp_file_name.stdout }}.dmg -nobrowse -mountpoint {{ temp_file_name.stdout }}
-
-    - name: Applicationsに移動
-      shell: cp -aR {{ temp_file_name.stdout }}/*.app /Applications/{{ app_name }}.app
-
-    - name: アプリケーションをデタッチする
-      shell: hdiutil detach {{ temp_file_name.stdout }}/
-
-    - shell: rm -rf {{ temp_file_name.stdout }} {{ temp_file_name.stdout }}.dmg
+- name: brew caskでdockerインストール
+  homebrew:
+    name: docker
