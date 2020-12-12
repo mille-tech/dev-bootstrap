@@ -9,3 +9,11 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: ./setup.sh --modify-config Yes --no-ask-become-pass --force-install
+  install_test_shell:
+    strategy:
+      matrix:
+        os: [macos-10.15]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v2
+      - uses: mxschmitt/action-tmate@v1
