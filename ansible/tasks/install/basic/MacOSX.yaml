@@ -14,6 +14,9 @@
     - name: brewで最低限必要なものをインストール
       homebrew_cask:
         name:
-          - google-chrome
           - docker
         state: present
+
+- name: なぜかansibleからgoogle cromeをbrew caskでインストールしようとするとエラーになるのでshellで実行
+  shell: brew install --cask google-chrome
+  ignore_errors: true
