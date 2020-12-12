@@ -1,5 +1,5 @@
 - name: gcloudインストール確認
-  shell: command -v gcloud 2>&1
+  shell: "command -v gcloud 2>&1 || {{ force_install }}"
   ignore_errors: true
   register: gcloud_install
 

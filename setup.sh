@@ -6,6 +6,7 @@ cd $wd
 
 ask_become_pass="--ask-become-pass"
 modify_config=""
+force_install=false
 for OPT in "$@"
 do
 	case $OPT in
@@ -14,6 +15,9 @@ do
 			shift 2;;
 		--no-ask-become-pass)
 			ask_become_pass=""
+			shift 1;;
+		--force-install)
+			force_install=true
 			shift 1;;
 	esac
 
@@ -57,6 +61,6 @@ case $modify_config in
 
 esac
 echo "必要なツールをインストールします。管理者権限が必要です"
-ansible-playbook ansible/setup.yaml --ask-become-pass --extra-vars="set_config=$set_config"
+ansible-playbook ansible/setup.yaml --ask-become-pass --extra-vars="set_config=$set_config force_install=$force_install"
 
 echo "インストールが完了しました。設定を反映するために再起動を行ってください"
