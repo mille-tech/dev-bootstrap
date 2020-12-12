@@ -58,3 +58,5 @@ case $modify_config in
 esac
 echo "必要なツールをインストールします。管理者権限が必要です"
 ansible-playbook ansible/setup.yaml --ask-become-pass --extra-vars="set_config=$set_config"
+
+echo "インストールが完了しました。設定を反映するために再起動を行ってください"
