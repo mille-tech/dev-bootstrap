@@ -4,6 +4,21 @@ set -eu
 wd=$(dirname $0)
 cd $wd
 
+ask_become_pass="--ask-become-pass"
+modify_config=""
+for OPT in "$@"
+do
+	case $OPT in
+		--modify-config)
+			modify_config="$2"
+			shift 2;;
+		--no-ask-become-pass)
+			ask_become_pass=""
+			shift 1;;
+	esac
+
+done
+
 if [ "$(uname)" = "Darwin" ] && ! command -v brew 2>&1; then
 	echo "brewをインストール"
 	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -24,10 +39,11 @@ ansible-galaxy install markosamuli.asdf
 
 
 
-
-echo "各種configの設定をしますか？この変更はユーザー設定を変更します。"
-echo -n "Y[es]/n[o]:"
-read modify_config
+if [ -z "$modify_config" ];then
+	echo "各種configの設定をしますか？この変更はユーザー設定を変更します。"
+	echo -n "Y[es]/n[o]:"
+	read modify_config
+fi
 
 
 set_config=false
