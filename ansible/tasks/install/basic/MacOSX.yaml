@@ -1,17 +1,13 @@
 - name: brew経由のインストール
   block:
-    - name: brewをupdate
-      homebrew:
-        update_homebrew: yes
-
     - name: brewで最低限必要なものをインストール
       homebrew:
-        name: "{{ item }}"
-        state: present
-      loop:
-        - google-chrome
-        - docker
-        - git
-        - wget
-        - curl
-        - gnu-tar
+        name:
+          - google-chrome
+          - docker
+          - git
+          - wget
+          - curl
+          - gnu-tar
+        state: latest
+        update_homebrew: true
