@@ -4,6 +4,8 @@
     state: present
   loop:
     - homebrew/core
+    - homebrew/cask
+    - homebrew/cask-versions
 
 - name: brewで最低限必要なものをインストール
   homebrew:
@@ -20,3 +22,5 @@
       - docker
       - google-chrome
     state: present
+    install_options:
+      - force
