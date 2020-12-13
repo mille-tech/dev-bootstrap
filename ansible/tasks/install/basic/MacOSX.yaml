@@ -16,6 +16,9 @@
       - gnu-tar
     update_homebrew: true
 
+- name: install前にアンインストールする
+  shell: brew uninstall google-chrome && true
+
 - name: brew caskで最低限必要なものをインストール
   homebrew_cask:
     name:
