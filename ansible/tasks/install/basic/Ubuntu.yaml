@@ -16,11 +16,6 @@
     state: "{{ item.state }}"
   loop: "{{ apt.add_keys }}"
 
-- shell: lsb_release -cs
-  ignore_errors: true
-  register: lsb_release
-  no_log: true
-
 - name: dockerのapt repositoryを追加
   become: true
   apt_repository:

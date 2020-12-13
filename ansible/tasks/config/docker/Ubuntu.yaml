@@ -7,6 +7,7 @@
   become: false
   shell: whoami
   register: username_on_the_host
+  changed_when: false
 
 - name: 現行ユーザをdockerグループに所属させる
   become: true
