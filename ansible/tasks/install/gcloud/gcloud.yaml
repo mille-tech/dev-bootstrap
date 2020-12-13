@@ -10,10 +10,8 @@
     - shell: mktemp -u
       register: temp_file_name
 
-    - include_vars: "{{ ansible_distribution }}_vars.yaml"
-
     - name: gcloud sdkをダウンロード
-      get_url: url={{ download_url }} dest={{ temp_file_name.stdout }}
+      get_url: url={{ gcloud.download_url }} dest={{ temp_file_name.stdout }}
 
     - name: gcloud sdkを解凍
       unarchive:
