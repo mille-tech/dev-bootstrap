@@ -1,11 +1,11 @@
 - block:
     - name: 事前処理
-      include_tasks: tasks/install/prepare/tasks.yaml
+      include_tasks: tasks/install/prepare/prepare.yaml
     - include_vars:
         file: "vars/install/setting.yaml"
     - include_vars:
         file: "vars/install/setting.{{ ansible_distribution }}.yaml"
     - name: 基本ツールをインストール
-      include_tasks: tasks/install/basic/tasks.yaml
+      include_tasks: tasks/install/basic/basic.yaml
     - name: gcloudをインストール
-      include_tasks: tasks/install/gcloud/tasks.yaml
+      include_tasks: tasks/install/gcloud/gcloud.yaml
