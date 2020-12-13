@@ -6,10 +6,8 @@ apt:
     - tar
     - docker-ce
   add_keys:
-    - url: https://download.docker.com/linux/ubuntu/gpg
-      state: present
+    - https://download.docker.com/linux/ubuntu/gpg
   add_repositories:
-    - repo: "deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ lsb_release.stdout }} stable"
-      state: present
+    - "deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ lsb_release.stdout }} stable"
 gcloud:
   download_url: "https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-{{ gcloud_sdk_version }}-linux-x86_64.tar.gz?hl=JA"

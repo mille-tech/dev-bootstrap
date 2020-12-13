@@ -12,16 +12,16 @@
 - name: apt keyを追加
   become: true
   apt_key:
-    url: "{{ item.url }}"
-    state: "{{ item.state }}"
+    url: "{{ item }}"
+    state: present
   loop: "{{ apt.add_keys }}"
 
 - name: dockerのapt repositoryを追加
   become: true
   apt_repository:
     update_cache: true
-    repo: "{{ item.repo }}"
-    state: "{{ item.state }}"
+    repo: "{{ item }}"
+    state: present
   loop: "{{ apt.add_repositories }}"
 
 - name: aptのcacheアップデート
