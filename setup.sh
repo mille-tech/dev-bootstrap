@@ -1,5 +1,8 @@
 #/bin/bash
 
+# 環境のsetupを行うスクリプト
+# コンフィグの設定は任意
+
 set -eu
 wd=$(dirname $0)
 cd $wd
