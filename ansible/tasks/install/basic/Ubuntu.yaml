@@ -14,11 +14,7 @@
   apt_key:
     url: "{{ item.url }}"
     state: "{{ item.state }}"
-  loop:
-    - url: https://download.docker.com/linux/ubuntu/gpg
-      state: present
-    - url: https://dl-ssl.google.com/linux/linux_signing_key.pub
-      state: present
+  loop: "{{ apt.add_keys }}"
 
 - shell: lsb_release -cs
   ignore_errors: true
@@ -31,20 +27,15 @@
     update_cache: true
     repo: "{{ item.repo }}"
     state: "{{ item.state }}"
-  loop:
-    - repo: "deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ lsb_release.stdout }} stable"
-      state: present
-    - repo: "deb http://dl.google.com/linux/chrome/deb/ stable main"
-      state: present
+  loop: "{{ apt.add_repositories }}"
+
+- name: aptのcacheアップデート
+  become: true
+  apt:
+    update_cache: true
 
 - name: aptで最低限必要なものをインストール
   become: true
   apt:
-    pkg:
-      - git
-      - wget
-      - curl
-      - tar
-      - docker-ce
-      - google-chrome-stable
-    update_cache: true
+    name: "{{ item }}"
+  loop: "{{ apt.install_apps }}"
