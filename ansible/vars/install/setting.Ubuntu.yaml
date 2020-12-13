@@ -11,7 +11,7 @@ apt:
       state: present
     - url: https://dl-ssl.google.com/linux/linux_signing_key.pub
       state: present
-  apt_add_repositories:
+  add_repositories:
     - repo: "deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ lsb_release.stdout }} stable"
       state: present
     - repo: "deb http://dl.google.com/linux/chrome/deb/ stable main"
