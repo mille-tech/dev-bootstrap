@@ -17,4 +17,4 @@ apt:
     - repo: "deb http://dl.google.com/linux/chrome/deb/ stable main"
       state: present
 gcloud:
-  download_url: "https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-{{ gcloud_sdk_version }}-linux-x86_64.tar.gz?hl=JA"
+  download_url: "https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-{{ gcloud.sdk_version }}-linux-x86_64.tar.gz?hl=JA"
