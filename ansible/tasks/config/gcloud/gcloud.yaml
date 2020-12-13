@@ -1,5 +1,7 @@
+# Document https://docs.ansible.com/ansible/latest/collections/ansible/builtin/shell_module.html
 - name: gcloud sdkをインストール
   shell: "{{ home }}/google-cloud-sdk/install.sh --command-completion true --path-update true --quiet"
 
+# Document https://docs.ansible.com/ansible/latest/collections/ansible/builtin/shell_module.html
 - name: gcloud sdkを初期化
   shell: /bin/bash -lc "echo -e 'n\n' | {{ home }}/google-cloud-sdk/bin/gcloud init --console-only --skip-diagnostics"

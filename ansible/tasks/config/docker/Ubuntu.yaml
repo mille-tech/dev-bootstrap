@@ -1,14 +1,17 @@
+# Document https://docs.ansible.com/ansible/latest/collections/ansible/builtin/shell_module.html
 - name: docker group作成
   become: true
   shell: groupadd docker
   failed_when: false
 
+# Document https://docs.ansible.com/ansible/latest/collections/ansible/builtin/shell_module.html
 - name: get the username running the deploy
   become: false
   shell: whoami
   register: username_on_the_host
   changed_when: false
 
+# Document https://docs.ansible.com/ansible/latest/collections/ansible/builtin/shell_module.html
 - name: 現行ユーザをdockerグループに所属させる
   become: true
   shell: "gpasswd -a {{ username_on_the_host.stdout }} docker"

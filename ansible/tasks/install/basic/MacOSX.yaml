@@ -1,3 +1,7 @@
+# Macでインストールする基本的なアプリケーションをインストールする
+# 主にパッケージ管理システムで管理できるアプリケーションをインストールする
+
+# Document https://docs.ansible.com/ansible/latest/collections/community/general/homebrew_tap_module.html
 - name: brew tap
   homebrew_tap:
     name: "{{ item }}"
@@ -7,14 +11,18 @@
     - homebrew/cask
     - homebrew/cask-versions
 
+# Document https://docs.ansible.com/ansible/latest/collections/community/general/homebrew_module.html#parameter-update_homebrew
 - name: brew update
   homebrew:
     update_homebrew: true
+
+# Document https://docs.ansible.com/ansible/latest/collections/community/general/homebrew_module.html
 - name: brewで最低限必要なものをインストール
   homebrew:
     name: "{{ item }}"
   loop: "{{ brew.install_apps }}"
 
+# Document https://docs.ansible.com/ansible/latest/collections/community/general/homebrew_cask_module.html
 - name: brew caskで最低限必要なものをインストール
   homebrew_cask:
     name: "{{ item }}"

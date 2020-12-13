@@ -1,2 +1,2 @@
-- name: 環境に依存するツールをインストール
-  include_tasks: "{{ ansible_distribution }}.yaml"
+# OSごとに読み込む設定ファイルを切り替えている
+- include_tasks: "{{ ansible_distribution }}.yaml"
