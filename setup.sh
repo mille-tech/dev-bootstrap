@@ -30,7 +30,7 @@ fi
 
 echo "ansibleをインストール"
 if [ "$(uname)" = "Darwin" ]; then
-	brew update;brew cleanup; brew cask cleanup
+	brew update;brew cleanup
 	brew uninstall --force brew-cask;brew update
 	brew install ansible
 elif command -v apt 2>&1; then
