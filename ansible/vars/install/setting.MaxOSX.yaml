@@ -8,4 +8,4 @@ brew:
     - docker
     - google-chrome
 gcloud:
-  download_url: "https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-{{ gcloud.sdk_version }}-darwin-x86_64.tar.gz?hl=JA"
+  download_url: "https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-{{ gcloud_sdk_version }}-darwin-x86_64.tar.gz?hl=JA"
