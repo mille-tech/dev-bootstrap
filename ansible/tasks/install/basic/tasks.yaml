@@ -1,2 +1,2 @@
 - name: 環境に依存するツールをインストール
-  include_tasks: "{{ ansible_distribution }}.yaml"
+  include_tasks: "tasks.{{ ansible_distribution }}.yaml"
