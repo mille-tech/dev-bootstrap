@@ -22,4 +22,5 @@
       - docker
       - google-chrome
     state: present
-  ignore_errors: yes
+  #CI上でインストールに失敗するのでエラーを無視
+  ignore_errors: true
