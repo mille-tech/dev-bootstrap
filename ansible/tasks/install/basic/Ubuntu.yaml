@@ -31,7 +31,8 @@
 
 - name: aptのcacheアップデート
   become: true
-  update_cache: true
+  apt:
+    update_cache: true
 
 - name: aptで最低限必要なものをインストール
   become: true
