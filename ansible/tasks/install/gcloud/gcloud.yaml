@@ -2,6 +2,7 @@
   shell: command -v gcloud 2>&1
   register: gcloud_install
   failed_when: false
+  changed_when: false
 
 - name: gcloudをインストール
   vars:
