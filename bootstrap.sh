@@ -1,5 +1,10 @@
 #!/bin/bash
 
+# 何一つ環境を構築していない人がsetupするためのスクリプト
+# リポジトリからファイルをダウンロードしてsetup.shを呼び出す
+
+
+
 set -eu
 extract_dir=$(mktemp -u)
 zip_file=$(mktemp -u)

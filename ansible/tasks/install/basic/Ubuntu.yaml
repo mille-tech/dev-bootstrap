@@ -1,3 +1,4 @@
+# Document https://docs.ansible.com/ansible/latest/collections/ansible/builtin/apt_module.html
 - name: repository追加に必要なツールをインストール
   become: true
   apt:
@@ -9,6 +10,7 @@
     - gnupg-agent
     - software-properties-common
 
+# Document https://docs.ansible.com/ansible/latest/collections/ansible/builtin/apt_key_module.html
 - name: apt keyを追加
   become: true
   apt_key:
@@ -16,6 +18,7 @@
     state: present
   loop: "{{ apt.add_keys }}"
 
+# Document https://docs.ansible.com/ansible/latest/collections/ansible/builtin/apt_repository_module.html
 - name: dockerのapt repositoryを追加
   become: true
   apt_repository:
@@ -24,11 +27,13 @@
     state: present
   loop: "{{ apt.add_repositories }}"
 
+# Document https://docs.ansible.com/ansible/latest/collections/ansible/builtin/apt_module.html#parameter-update_cache
 - name: aptのcacheアップデート
   become: true
   apt:
     update_cache: true
 
+# Document https://docs.ansible.com/ansible/latest/collections/ansible/builtin/apt_module.html
 - name: aptで最低限必要なものをインストール
   become: true
   apt:

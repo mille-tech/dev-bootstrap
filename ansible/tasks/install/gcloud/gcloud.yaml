@@ -1,3 +1,4 @@
+# Document https://docs.ansible.com/ansible/latest/collections/ansible/builtin/shell_module.html
 - name: gcloudインストール確認
   shell: command -v gcloud 2>&1
   register: gcloud_install
@@ -5,20 +6,23 @@
   changed_when: false
 
 - name: gcloudをインストール
-  vars:
-    gcloud_sdk_version: 319.0.0
   block:
-    - shell: mktemp -u
+    # Document https://docs.ansible.com/ansible/latest/collections/ansible/builtin/shell_module.html
+    - name: tempファイル用の名前取得
+      shell: mktemp -u
       register: temp_file_name
 
+    # Document https://docs.ansible.com/ansible/latest/collections/ansible/builtin/get_url_module.html
     - name: gcloud sdkをダウンロード
       get_url: url={{ gcloud.download_url }} dest={{ temp_file_name.stdout }}
 
+    # Document https://docs.ansible.com/ansible/latest/collections/ansible/builtin/unarchive_module.html
     - name: gcloud sdkを解凍
       unarchive:
         src: "{{ temp_file_name.stdout }}"
         dest: "{{ home }}"
 
+    # Document https://docs.ansible.com/ansible/latest/collections/ansible/builtin/shell_module.html
     - name: gcloudコンポーネントアップデートを実行
       shell: "{{ home }}/google-cloud-sdk/bin/gcloud components update --quiet"
   when:
