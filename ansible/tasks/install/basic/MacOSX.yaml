@@ -20,7 +20,7 @@
   homebrew_cask:
     name:
       - docker
-      - google-chrome
+      - google-chrome-stable
     state: present
     install_options:
       - force
