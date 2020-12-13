@@ -1,13 +1,21 @@
+# apt関連の設定
 apt:
+  # インストールするアプリケーションの設定。aptでインストールするアプリケーションを増やしたい場合はここに追加する
   install_apps:
     - git
     - wget
     - curl
     - tar
     - docker-ce
+
+  # 追加するapt keyをここに記載する。独自のaptリポジトリを追加する際に設定する
   add_keys:
     - https://download.docker.com/linux/ubuntu/gpg
+  # 追加するaptリポジトリ。独自のaptリポジトリを追加する
   add_repositories:
     - "deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ lsb_release.stdout }} stable"
+
+# gcloudの設定
 gcloud:
+  # gcloud sdk ダウンロード用のURL
   download_url: "https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-{{ gcloud_sdk_version }}-linux-x86_64.tar.gz?hl=JA"

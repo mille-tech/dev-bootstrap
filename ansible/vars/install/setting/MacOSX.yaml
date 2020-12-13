@@ -1,10 +1,17 @@
+# brewの設定
 brew:
+  # brewでインストールするアプリケーションのリスト。
+  # brewでインストールするアプリケーションを増やす場合はここにアプリケーションを追加する
   install_apps:
     - git
     - wget
     - curl
     - gnu-tar
+  # brew caskでインストールするアプリケーションのリスト。
+  # brew caskでインストールするアプリケーションを増やす場合ここにアプリケーションを追加する
   cask_install_apps:
     - docker
+# google cloud sdkに関する設定
 gcloud:
+  # google cloud sdkダウンロード用のURL
   download_url: "https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-{{ gcloud_sdk_version }}-darwin-x86_64.tar.gz?hl=JA"
