@@ -22,6 +22,6 @@
       - docker
       - google-chrome
     state: present
-    ignore_errors: yes
     install_options:
       - force
+  ignore_errors: yes
