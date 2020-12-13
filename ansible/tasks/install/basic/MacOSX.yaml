@@ -4,7 +4,6 @@
     state: present
   loop:
     - homebrew/core
-    - caskroom/cask
 
 - name: brewで最低限必要なものをインストール
   homebrew:
