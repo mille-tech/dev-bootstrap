@@ -1,6 +1,6 @@
-- include_vars:
-    file: "install/setting.{{ ansible_distribution }}.yaml"
-  block:
+- block:
+    - include_vars:
+        file: "install/setting.{{ ansible_distribution }}.yaml"
     - name: 基本ツールをインストール
       include_tasks: tasks/install/basic/basic.yaml
     - name: gcloudをインストール
