@@ -7,20 +7,17 @@
     - homebrew/cask
     - homebrew/cask-versions
 
+- name: brew update
+  homebrew:
+    update_homebrew: true
 - name: brewで最低限必要なものをインストール
   homebrew:
-    name:
-      - git
-      - wget
-      - curl
-      - gnu-tar
-    update_homebrew: true
+    name: "{{ item }}"
+  loop: "{{ brew_install_apps }}"
 
 - name: brew caskで最低限必要なものをインストール
   homebrew_cask:
-    name:
-      - docker
-      - google-chrome
-    state: present
+    name: "{{ item }}"
   #CI上でインストールに失敗するのでエラーを無視
   ignore_errors: true
+  loop: "{{ brew_cask_install_apps }}"
