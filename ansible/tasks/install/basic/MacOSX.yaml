@@ -13,11 +13,11 @@
 - name: brewで最低限必要なものをインストール
   homebrew:
     name: "{{ item }}"
-  loop: "{{ brew_install_apps }}"
+  loop: "{{ brew.install_apps }}"
 
 - name: brew caskで最低限必要なものをインストール
   homebrew_cask:
     name: "{{ item }}"
   #CI上でインストールに失敗するのでエラーを無視
   ignore_errors: true
-  loop: "{{ brew_cask_install_apps }}"
+  loop: "{{ brew.cask_install_apps }}"

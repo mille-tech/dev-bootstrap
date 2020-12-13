@@ -14,7 +14,7 @@
   apt_key:
     url: "{{ item.url }}"
     state: "{{ item.state }}"
-  loop: "{{ apt_add_keys }}"
+  loop: "{{ apt.add_keys }}"
 
 - shell: lsb_release -cs
   ignore_errors: true
@@ -27,7 +27,7 @@
     update_cache: true
     repo: "{{ item.repo }}"
     state: "{{ item.state }}"
-  loop: "{{ apt_add_repositories }}"
+  loop: "{{ apt.add_repositories }}"
 
 - name: aptのcacheアップデート
   become: true
@@ -37,4 +37,4 @@
   become: true
   apt:
     name: "{{ item }}"
-  loop: "{{ apt_install_apps }}"
+  loop: "{{ apt.install_apps }}"

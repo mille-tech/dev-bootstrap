@@ -1,8 +1,9 @@
-- brew_install_apps:
-    - git
-    - wget
-    - curl
-    - gnu-tar
-- brew_cask_install_apps:
-    - docker
-    - google-chrome
+- brew:
+    install_apps:
+      - git
+      - wget
+      - curl
+      - gnu-tar
+    cask_install_apps:
+      - docker
+      - google-chrome
