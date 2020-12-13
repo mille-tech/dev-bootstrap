@@ -1,4 +1,6 @@
 - block:
+    - name: 事前処理
+      include_tasks: tasks/install/prepare/prepare.yaml
     - include_vars:
         file: "vars/install/setting.{{ ansible_distribution }}.yaml"
     - name: 基本ツールをインストール
