@@ -5,16 +5,11 @@ apt:
     - curl
     - tar
     - docker-ce
-    - google-chrome-stable
   add_keys:
     - url: https://download.docker.com/linux/ubuntu/gpg
       state: present
-    - url: https://dl-ssl.google.com/linux/linux_signing_key.pub
-      state: present
   add_repositories:
     - repo: "deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ lsb_release.stdout }} stable"
-      state: present
-    - repo: "deb http://dl.google.com/linux/chrome/deb/ stable main"
       state: present
 gcloud:
   download_url: "https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-{{ gcloud_sdk_version }}-linux-x86_64.tar.gz?hl=JA"
