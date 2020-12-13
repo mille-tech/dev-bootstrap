@@ -1,5 +1,5 @@
 - include_vars:
-    file: "install/install_apps.{{ ansible_distribution }}.yaml"
+    file: "install/setting.{{ ansible_distribution }}.yaml"
   block:
     - name: 基本ツールをインストール
       include_tasks: tasks/install/basic/basic.yaml
