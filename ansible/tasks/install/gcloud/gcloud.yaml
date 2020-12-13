@@ -1,7 +1,7 @@
 - name: gcloudインストール確認
   shell: command -v gcloud 2>&1
-  ignore_errors: true
   register: gcloud_install
+  failed_when: false
 
 - name: gcloudをインストール
   vars:

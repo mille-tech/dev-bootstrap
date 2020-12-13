@@ -1,7 +1,7 @@
 - name: docker group作成
   become: true
-  ignore_errors: true
   shell: groupadd docker
+  failed_when: false
 
 - name: get the username running the deploy
   become: false
