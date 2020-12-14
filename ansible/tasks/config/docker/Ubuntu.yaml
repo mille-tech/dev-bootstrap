@@ -1,3 +1,3 @@
 # Document https://docs.ansible.com/ansible/latest/collections/ansible/builtin/shell_module.html
 - name: rootless dockerの設定追加
-  shell: echo -e "export PATH=$HOME/bin\nexport DOCKER_HOST=unix:///run/user/1000/docker.sock" >> {{ home }}/.profile
+  shell: echo -e "\nexport PATH=$HOME/bin\nexport DOCKER_HOST=unix:///run/user/1000/docker.sock" >> {{ home }}/.profile
