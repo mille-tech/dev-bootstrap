@@ -1,3 +1,8 @@
 # Document https://docs.ansible.com/ansible/latest/collections/ansible/builtin/shell_module.html
 - name: rootless dockerの設定追加
-  shell: echo -e "\nexport PATH=$HOME/bin\nexport DOCKER_HOST=unix:///run/user/1000/docker.sock" >> {{ home }}/.profile
+  vars:
+    start: "# BEGIN_DOCKER_CONFIG"
+    end: "# END_DOCKER_CONFIG"
+    script: 'export PATH="$HOME/bin:$PATH";export DOCKER_HOST=unix:///run/user/1000/docker.sock'
+  shell: >-
+    cat {{ home }}/.profile | grep -Pzo "{{ start }}[\s\S]*{{ end }}" || bash -c "echo -e \"\n{{ start }}\n{{ script }}\n{{ end }}\n\"" >> {{ home }}/.profile
