@@ -8,6 +8,7 @@ wd=$(dirname $0)
 cd $wd
 
 ask_become_pass="--ask-become-pass"
+interactive="true"
 modify_config=""
 force_install=false
 for OPT in "$@"
@@ -16,8 +17,9 @@ do
 		--modify-config)
 			modify_config="$2"
 			shift 2;;
-		--no-ask-become-pass)
+		--no-interactive)
 			ask_become_pass=""
+			interactive="false"
 			shift 1;;
 		--force-install)
 			force_install=true
@@ -27,9 +29,13 @@ do
 done
 
 if [ -z "$modify_config" ];then
-	echo "各種configの設定をしますか？この変更はユーザー設定を変更します。"
-	echo -n "Y[es]/n[o]:"
-	read modify_config
+	if [ "$interactive" = "false" ]; then
+		modify_config="Yes"
+	else
+		echo "各種configの設定をしますか？この変更はユーザー設定を変更します。"
+		echo -n "Y[es]/n[o]:"
+		read modify_config
+	fi
 fi
 
 
@@ -64,6 +70,6 @@ fi
 ansible-galaxy install markosamuli.asdf
 
 echo "必要なツールをインストールします。管理者権限が必要です"
-ansible-playbook ansible/setup.yaml --ask-become-pass --extra-vars="set_config=$set_config force_install=$force_install"
+ansible-playbook ansible/setup.yaml --ask-become-pass --extra-vars="set_config=$set_config force_install=$force_install interactive=$interactive"
 
 echo "インストールが完了しました。設定を反映するために再起動を行ってください"

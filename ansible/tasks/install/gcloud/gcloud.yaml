@@ -11,6 +11,7 @@
     - name: tempファイル用の名前取得
       shell: mktemp -u
       register: temp_file_name
+      changed_when: false
 
     # Document https://docs.ansible.com/ansible/latest/collections/ansible/builtin/get_url_module.html
     - name: gcloud sdkをダウンロード

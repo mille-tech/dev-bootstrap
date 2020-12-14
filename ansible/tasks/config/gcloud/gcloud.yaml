@@ -4,4 +4,19 @@
 
 # Document https://docs.ansible.com/ansible/latest/collections/ansible/builtin/shell_module.html
 - name: gcloud sdkを初期化
-  shell: /bin/bash -lc "echo -e 'n\n' | {{ home }}/google-cloud-sdk/bin/gcloud init --console-only --skip-diagnostics"
+  shell: >-
+    /bin/bash -lc "echo -e '{{ 
+      'Yes' if interactive == 'true' else
+      'No' if interactive == 'false' else
+      'No'
+    }}\n' | {{ home }}/google-cloud-sdk/bin/gcloud init --console-only --skip-diagnostics"
+
+- block:
+    - name: gcloud auth loginを実行
+      shell: "{{ home }}/google-cloud-sdk/bin/gcloud auth login"
+    - name: gcloud application default loginを実行
+      shell: "{{ home }}/google-cloud-sdk/bin/gcloud auth application-default login"
+    - name: gcloud auth configure-dockerを実行
+      shell: "{{ home }}/google-cloud-sdk/bin/gcloud auth configure-docker"
+  when:
+    - interactive == "true"
