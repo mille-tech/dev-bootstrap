@@ -4,7 +4,7 @@ COPY . /bootstrap
 
 RUN apt update -qq && \
 	apt install -y --no-install-recommends sudo && \
-	/bootstrap/setup.sh --modify-config Yes --no-ask-become-pass --force-install && rm -rf /bootstrap
+	/bootstrap/setup.sh --no-interactive && rm -rf /bootstrap
 
 RUN useradd -u 1000 ubuntu \
  && usermod -s /bin/bash -G adm,sudo ubuntu \

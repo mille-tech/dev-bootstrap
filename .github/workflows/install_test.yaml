@@ -8,4 +8,4 @@ jobs:
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v2
-      - run: ./setup.sh --modify-config Yes --no-ask-become-pass --force-install
+      - run: ./setup.sh --no-interactive --force-install
