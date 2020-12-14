@@ -7,10 +7,8 @@ ARG DOCKER_UID=1000
 ARG DOCKER_USER=docker
 ARG DOCKER_PASSWORD=docker
 
-RUN useradd -u ${DOCKER_UID} ${DOCKER_USER} \
- && usermod -s /bin/bash -G adm,sudo ${DOCKER_USER} \
- && echo "${DOCKER_USER} ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers \
- && mkdir -p /home/${DOCKER_USER} && chown -R ${DOCKER_USER}.${DOCKER_USER} /home/${DOCKER_USER}
+RUN adduser  -q --gecos "" --ingroup adm --ingroup sudo --disabled-password --uid ${DOCKER_UID} ${DOCKER_USER}\
+ && echo "${DOCKER_USER} ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 
 USER ${DOCKER_UID}
 COPY . /bootstrap
