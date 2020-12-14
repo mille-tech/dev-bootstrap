@@ -6,8 +6,8 @@
 - name: gcloud sdkを初期化
   shell: >-
     /bin/bash -lc "echo -e '{{ 
-      'Yes' if interactive == 'true' else
-      'No' if interactive == 'false' else
+      'Yes' if require_google_auth == 'true' else
+      'No' if require_google_auth == 'false' else
       'No'
     }}\n' | {{ home }}/google-cloud-sdk/bin/gcloud init --console-only --skip-diagnostics"
 
@@ -19,4 +19,4 @@
     - name: gcloud auth configure-dockerを実行
       shell: "{{ home }}/google-cloud-sdk/bin/gcloud auth configure-docker"
   when:
-    - interactive == "true"
+    - require_google_auth == "true"
