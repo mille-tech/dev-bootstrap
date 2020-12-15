@@ -5,13 +5,18 @@
 
 # Instration
 
-1. 下記コマンドをターミナル上で実行してください。
+1. 下記コマンドをコピーしてターミナル上で実行してください。
+   途中対話形式で質問されるので Y か n を入力してください。
 
 \*TODO 正式に決まったら URL を変更する
 
 ```console
-u=https://raw.githubusercontent.com/qwerty2501/working-environment-bootstrap/master/bootstrap.sh&&b=$(mktemp -u)&&((command -v curl&&curl -o $b $u)||(command -v wget&&wget -qO $b $u))&&bash $b
+u=https://raw.githubusercontent.com/qwerty2501/working-environment-bootstrap/master/bootstrap.sh&& \
+b=$(mktemp -u)&&((command -v curl&&curl -o $b $u)||(command -v wget&&wget -qO $b $u))&& \
+bash $b
 ```
+
+2. スクリプト実行中に Google Account は発行されていますか?に Yes で答えた場合は何度か Google 認証が呼び出されるのでログインして許可してください
 
 # Docker について
 
