@@ -1,5 +1,5 @@
 name: install_test
-on: [push, pull_request]
+on: [push]
 jobs:
   install_test:
     strategy:
