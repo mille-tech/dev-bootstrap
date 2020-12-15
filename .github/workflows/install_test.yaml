@@ -11,3 +11,10 @@ jobs:
       - run: ./setup.sh --no-interactive --force-install
         env:
           FORCE_ROOTLESS_INSTALL: 1
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: lint ansible playbook
+        uses: ansible/ansible-lint-action@master
+        with:
+          targets: ansible/setup.yaml
