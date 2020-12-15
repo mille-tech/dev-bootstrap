@@ -1,9 +1,14 @@
+# Document https://docs.ansible.com/ansible/latest/collections/ansible/builtin/apt_module.html#parameter-update_cache
+- name: aptのcacheアップデート
+  become: true
+  apt:
+    update_cache: true
+
 # Document https://docs.ansible.com/ansible/latest/collections/ansible/builtin/apt_module.html
 - name: repository追加に必要なツールをインストール
   become: true
   apt:
     name: "{{ item }}"
-    update_cache: true
   loop:
     - apt-transport-https
     - ca-certificates
