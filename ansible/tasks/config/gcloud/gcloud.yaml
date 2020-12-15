@@ -12,5 +12,5 @@
       shell: "{{ home }}/google-cloud-sdk/bin/gcloud auth application-default login"
     - name: gcloud auth configure-dockerを実行
       shell: "{{ home }}/google-cloud-sdk/bin/gcloud auth configure-docker"
-  when:
-    - require_google_auth == "true"
+  tags:
+    - require_google_auth

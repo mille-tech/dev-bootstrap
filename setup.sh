@@ -27,11 +27,11 @@ do
 	esac
 
 done
-
+skip_tags=''
 if [ -z "$modify_config" ];then
 	if [ "$interactive" = "false" ]; then
 		modify_config="Yes"
-		require_google_auth="false"
+		skip_tags="$skip_tags --skip-tags require_google_auth"
 	else
 		echo "各種configの設定をしますか？この変更はユーザー設定を変更します。"
 		echo -n "Y[es]/n[o]:"
@@ -40,8 +40,8 @@ if [ -z "$modify_config" ];then
 		echo -n "Y[es]/n[o]:"
 		read require_google_auth_yesno
 		case $require_google_auth_yesno in
-			Y|Yes)require_google_auth="true";;
-			*)require_google_auth="false";;
+			Y|Yes);;
+			*)skip_tags="$skip_tags --skip-tags require_google_auth";;
 		esac
 	fi
 fi
@@ -78,6 +78,6 @@ fi
 ansible-galaxy install markosamuli.asdf
 
 echo "必要なツールをインストールします。管理者権限が必要です"
-ansible-playbook ansible/setup.yaml --ask-become-pass --extra-vars="set_config=$set_config force_install=$force_install require_google_auth=$require_google_auth"
+ansible-playbook ansible/setup.yaml --ask-become-pass --extra-vars="set_config=$set_config force_install=$force_install" $skip_tags
 
 echo "インストールが完了しました。設定を反映するために再起動を行ってください"
