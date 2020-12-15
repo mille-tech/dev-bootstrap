@@ -1,6 +1,8 @@
 # Document https://docs.ansible.com/ansible/latest/collections/ansible/builtin/shell_module.html
 - name: gcloud sdkをインストール
   shell: "{{ home }}/google-cloud-sdk/install.sh --command-completion true --path-update true --quiet"
+  tags:
+    - lint-ignore
 
 - block:
     # Document https://docs.ansible.com/ansible/latest/collections/ansible/builtin/shell_module.html
@@ -14,3 +16,5 @@
       shell: "{{ home }}/google-cloud-sdk/bin/gcloud auth configure-docker"
   when:
     - require_google_auth == "true"
+  tags:
+    - lint-ignore

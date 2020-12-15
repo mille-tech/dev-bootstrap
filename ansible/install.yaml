@@ -1,9 +1,11 @@
 - block:
     - name: 事前処理
       include_tasks: tasks/install/prepare/prepare.yaml
-    - include_vars:
+    - name: 設定読込
+      include_vars:
         file: "vars/install/setting/setting.yaml"
-    - include_vars:
+    - name: 環境ごとの設定読込
+      include_vars:
         file: "vars/install/setting/{{ ansible_distribution }}.yaml"
     - name: 基本ツールをインストール
       include_tasks: tasks/install/basic/basic.yaml
