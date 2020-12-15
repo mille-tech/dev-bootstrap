@@ -36,7 +36,7 @@ if [ -z "$modify_config" ];then
 		echo "各種configの設定をしますか？この変更はユーザー設定を変更します。"
 		echo -n "Y[es]/n[o]:"
 		read modify_config
-		echo "会社からgoogle accountは発行されていますか?"
+		echo "Google Accountは発行されていますか?"
 		echo -n "Y[es]/n[o]:"
 		read require_google_auth_yesno
 		case $require_google_auth_yesno in
