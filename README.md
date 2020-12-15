@@ -17,6 +17,20 @@ u=https://raw.githubusercontent.com/qwerty2501/working-environment-bootstrap/mas
 
 開発環境を Docker で構築したい人のために Dockerfile を用意した。社の共有 Docker リポジトリを作ってそこにイメージを作っても良いかも？
 
+## DooD するための設定
+
+Docker 内部で Docker を実行したい場合は以下の設定を行う
+
+```console
+chmod 666 /var/run/user/{userId}/docker.sock
+```
+
+その後この Docker コンテナを実行する際に以下のコマンドで行うこと
+
+```console
+docker run -v /var/run/user/{userId}/docker.sock:/var/run/user/{docker内部のuserId}/docker.sock -it {Image名} bash -l
+```
+
 # メンテナンス
 
 メンテナンスしやすくするためには
