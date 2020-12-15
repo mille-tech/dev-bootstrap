@@ -3,6 +3,6 @@
   vars:
     start: "# BEGIN_DOCKER_CONFIG"
     end: "# END_DOCKER_CONFIG"
-    script: 'export PATH="$HOME/bin:$PATH";export DOCKER_HOST=unix:///run/user/1000/docker.sock'
+    script: "export DOCKER_HOST=unix:///run/user/1000/docker.sock"
   shell: >-
     cat {{ home }}/.profile | grep -Pzo "{{ start }}[\s\S]*{{ end }}" || bash -c "echo -e \"\n{{ start }}\n{{ script }}\n{{ end }}\n\"" >> {{ home }}/.profile
