@@ -1,2 +1,6 @@
 # OSごとに読み込む設定ファイルを切り替えている
 - include_tasks: "{{ ansible_distribution }}.yaml"
+- name: pre-commitをインストール
+  pip:
+    name: "{{ item }}"
+  loop: "{{ pip.install_apps }}"

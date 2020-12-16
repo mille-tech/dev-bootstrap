@@ -25,6 +25,7 @@ bash $b
 - terraform
 - git
 - docker(Ubuntu の場合は rootless)
+- pre-commit
 
 # Docker について
 

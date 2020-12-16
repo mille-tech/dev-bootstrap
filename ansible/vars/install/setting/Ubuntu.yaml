@@ -9,6 +9,7 @@ apt:
     - uidmap
     - dirmngr
     - gpg
+    - python3-pip
 
   # 追加するapt keyをここに記載する。独自のaptリポジトリを追加する際に設定する
   add_keys: []

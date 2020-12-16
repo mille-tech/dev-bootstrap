@@ -9,6 +9,7 @@ brew:
     - gnu-tar
     - coreutils
     - gpg
+    - python
   # brew caskでインストールするアプリケーションのリスト。
   # brew caskでインストールするアプリケーションを増やす場合ここにアプリケーションを追加する
   cask_install_apps:
