@@ -10,9 +10,6 @@
     - name: 基本ツールをインストール
       include_tasks: tasks/install/basic/basic.yaml
     - name: asdfインストール
-      vars:
-        asdf_init_shell: "{{ set_config }}"
-      include_role:
-        name: markosamuli.asdf
+      include_tasks: tasks/install/asdf/asdf.yaml
     - name: gcloudをインストール
       include_tasks: tasks/install/gcloud/gcloud.yaml

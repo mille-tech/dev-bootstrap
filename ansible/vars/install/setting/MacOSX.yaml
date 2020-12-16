@@ -7,6 +7,8 @@ brew:
     - wget
     - curl
     - gnu-tar
+    - coreutils
+    - gpg
   # brew caskでインストールするアプリケーションのリスト。
   # brew caskでインストールするアプリケーションを増やす場合ここにアプリケーションを追加する
   cask_install_apps:
