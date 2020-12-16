@@ -1,2 +1,6 @@
 # google cloud sdkのバージョン
 gcloud_sdk_version: 319.0.0
+asdf_plugins:
+  - name: "terraform"
+    versions:
+      - "0.14.2"
