@@ -11,3 +11,5 @@
   roles:
     - role: markosamuli.asdf
       asdf_init_shell: "{{ set_config }}"
+      asdf_plugins:
+        - name: "terraform"
