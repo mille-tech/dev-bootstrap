@@ -1,5 +1,8 @@
 # google cloud sdkのバージョン
 gcloud_sdk_version: 319.0.0
+
+# asdfで使用するプラグイン
+# Document https://github.com/cimon-io/ansible-role-asdf#ansible-asdf-role
 asdf_plugins:
   - name: "terraform"
     versions:
