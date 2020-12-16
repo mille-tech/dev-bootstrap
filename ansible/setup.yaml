@@ -8,10 +8,3 @@
       include_tasks: config.yaml
       when:
         - set_config == "true"
-  roles:
-    - role: markosamuli.asdf
-      asdf_init_shell: "{{ set_config }}"
-      asdf_plugins:
-        - name: "terraform"
-          versions:
-            - "0.14.2"

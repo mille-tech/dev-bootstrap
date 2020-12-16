@@ -9,5 +9,10 @@
         file: "vars/install/setting/{{ ansible_distribution }}.yaml"
     - name: 基本ツールをインストール
       include_tasks: tasks/install/basic/basic.yaml
+    - name: asdfインストール
+      vars:
+        asdf_init_shell: "{{ set_config }}"
+      include_role:
+        name: markosamuli.asdf
     - name: gcloudをインストール
       include_tasks: tasks/install/gcloud/gcloud.yaml
