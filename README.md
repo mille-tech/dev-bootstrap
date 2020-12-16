@@ -18,6 +18,14 @@ bash $b
 
 2. スクリプト実行中に Google Account は発行されていますか?に Yes で答えた場合は何度か Google 認証が呼び出されるのでログインして許可してください
 
+# Install される主なアプリケーション一覧
+
+- google-cloud-sdk
+- asdf
+- terraform
+- git
+- docker(Ubuntu の場合は rootless)
+
 # Docker について
 
 開発環境を Docker で構築したい人のために Dockerfile を用意した。社の共有 Docker リポジトリを作ってそこにイメージを作っても良いかも？
