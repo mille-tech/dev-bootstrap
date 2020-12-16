@@ -7,3 +7,6 @@ asdf_plugins:
   - name: "terraform"
     versions:
       - "0.14.2"
+  - name: "nodejs"
+  - name: "rust"
+  - name: "golang"

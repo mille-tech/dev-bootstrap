@@ -1,0 +1,8 @@
+- name: asdfインストール
+  vars:
+    asdf_init_shell: "{{ set_config }}"
+  include_role:
+    name: markosamuli.asdf
+- name: import OpenPGP keys
+  shell: bash -c '${ASDF_DATA_DIR:=$HOME/.asdf}/plugins/nodejs/bin/import-release-team-keyring'
+  changed_when: false
