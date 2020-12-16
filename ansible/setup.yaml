@@ -13,4 +13,5 @@
       asdf_init_shell: "{{ set_config }}"
       asdf_plugins:
         - name: "terraform"
-          global: "0.14.2"
+          versions:
+            - "0.14.2"
