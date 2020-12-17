@@ -10,3 +10,7 @@ asdf_plugins:
   - name: "nodejs"
   - name: "rust"
   - name: "golang"
+
+pip:
+  install_apps:
+    - pre-commit
