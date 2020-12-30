@@ -55,7 +55,7 @@ if [ -z "$modify_config" ];then
 	fi
 fi
 
-if [ "$require_google_auth" = "false" || "$on_wsl" = "false" ]; then
+if [ "$require_google_auth" = "false" ] || [ "$on_wsl" = "false" ]; then
 	skip_tags="$skip_tags --skip-tags require_google_auth"
 fi
 
