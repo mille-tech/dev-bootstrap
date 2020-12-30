@@ -95,6 +95,7 @@ echo "必要なツールをインストールします。管理者権限が必�
 ansible-playbook ansible/setup.yaml --ask-become-pass --extra-vars="set_config=$set_config force_install=$force_install" $skip_tags
 
 if [ "$on_wsl" = "true" ];then
+	export require_google_auth
 	$wd/setup_wsl.sh
 fi
 
