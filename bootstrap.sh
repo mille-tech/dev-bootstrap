@@ -10,6 +10,7 @@ extract_dir=$(mktemp -u)
 zip_file=$(mktemp -u)
 
 trap "
+	rm $0
 	rm $zip_file
 	rm -rf $extract_dir
 " 1 2 3 9 15 0
@@ -26,6 +27,16 @@ elif command -v wget > /dev/null 2>&1; then
 else 
 	echo "環境構築にはcurlかwgetが必要です"
 	exit 1
+fi
+
+if ! command -v unzip > /dev/null 2>&1; then
+	if command -v apt > /dev/null 2>&1; then
+		sudo apt update
+		sudo apt install unzip
+	else
+		echo "環境構築にはunzipが必要です"
+		exit 1
+	fi
 fi
 
 unzip -d $extract_dir $zip_file
