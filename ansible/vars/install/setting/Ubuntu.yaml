@@ -10,11 +10,14 @@ apt:
     - dirmngr
     - gpg
     - python3-pip
+    - docker-ce
 
   # 追加するapt keyをここに記載する。独自のaptリポジトリを追加する際に設定する
-  add_keys: []
+  add_keys:
+    - https://download.docker.com/linux/ubuntu/gpg
   # 追加するaptリポジトリ。独自のaptリポジトリを追加する
-  add_repositories: []
+  add_repositories:
+    - "deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ lsb_release.stdout }} stable"
 
 # gcloudの設定
 gcloud:
