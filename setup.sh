@@ -55,7 +55,7 @@ if [ -z "$modify_config" ];then
 	fi
 fi
 
-if [ "$require_google_auth" = "false" || "$on_wsl" = "false" ]; then
+if [ "$require_google_auth" = "false" ] || [ "$on_wsl" = "false" ]; then
 	skip_tags="$skip_tags --skip-tags require_google_auth"
 fi
 
@@ -92,7 +92,7 @@ fi
 ansible-galaxy install markosamuli.asdf
 
 echo "必要なツールをインストールします。管理者権限が必要です"
-ansible-playbook ansible/setup.yaml --ask-become-pass --extra-vars="set_config=$set_config force_install=$force_install" $skip_tags
+ansible-playbook ansible/setup.yaml $ask_become_pass --extra-vars="set_config=$set_config force_install=$force_install" $skip_tags
 
 if [ "$on_wsl" = "true" ];then
 	export require_google_auth
