@@ -58,7 +58,7 @@ case $modify_config in
 
 esac
 
-if [ "$(uname)" = "Darwin" ] && ! command -v brew 2>&1; then
+if [ "$(uname)" = "Darwin" ] && ! command -v brew > /dev/null 2>&1; then
 	echo "brewをインストール"
 	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
@@ -68,7 +68,7 @@ if [ "$(uname)" = "Darwin" ]; then
 	rm '/usr/local/bin/2to3' || true
 	brew update
 	brew install ansible
-elif command -v apt 2>&1; then
+elif command -v apt > /dev/null 2>&1; then
 	sudo apt update
 	sudo apt install -y ansible
 else
