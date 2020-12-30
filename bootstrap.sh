@@ -32,7 +32,7 @@ fi
 if ! command -v unzip > /dev/null 2>&1; then
 	if command -v apt > /dev/null 2>&1; then
 		sudo apt update
-		sudo apt install unzip
+		sudo apt install -y unzip
 	else
 		echo "環境構築にはunzipが必要です"
 		exit 1
