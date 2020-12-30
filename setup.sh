@@ -65,6 +65,7 @@ fi
 
 echo "ansibleをインストール"
 if [ "$(uname)" = "Darwin" ]; then
+	rm '/usr/local/bin/2to3' || true
 	brew update
 	brew install ansible
 elif command -v apt 2>&1; then
