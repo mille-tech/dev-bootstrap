@@ -38,16 +38,10 @@ bash $b
 
 ## DooD するための設定
 
-Docker 内部で Docker を実行したい場合は以下の設定を行う
+この Docker コンテナを実行する際に以下のコマンドで行うこと
 
 ```console
-chmod 666 /var/run/user/{userId}/docker.sock
-```
-
-その後この Docker コンテナを実行する際に以下のコマンドで行うこと
-
-```console
-docker run -v /var/run/user/{userId}/docker.sock:/var/run/user/{docker内部のuserId}/docker.sock -it {Image名} bash -l
+docker run -v /var/run/docker.sock:/var/run/docker.sock -it {Image名} bash -l
 ```
 
 # メンテナンス
