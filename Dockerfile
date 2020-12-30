@@ -12,7 +12,6 @@ RUN adduser  -q --gecos "" --ingroup adm --ingroup sudo --disabled-password --ui
 
 USER ${DOCKER_UID}
 COPY . /bootstrap
-ENV SKIP_IPTABLES=1
 RUN /bootstrap/setup.sh --no-interactive && sudo rm -rf /bootstrap
 
 WORKDIR /home/${DOCKER_USER}

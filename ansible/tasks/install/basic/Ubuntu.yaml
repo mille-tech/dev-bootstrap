@@ -44,8 +44,3 @@
   apt:
     name: "{{ item }}"
   loop: "{{ apt.install_apps }}"
-
-- name: rootless dockerをインストール
-  shell:
-    cmd: curl -fsSL https://get.docker.com/rootless | sh
-    warn: false
