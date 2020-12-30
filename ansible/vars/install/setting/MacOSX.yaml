@@ -10,10 +10,11 @@ brew:
     - coreutils
     - gpg
     - python
+    - docker
+
   # brew caskでインストールするアプリケーションのリスト。
   # brew caskでインストールするアプリケーションを増やす場合ここにアプリケーションを追加する
-  cask_install_apps:
-    - docker
+  cask_install_apps: []
 # google cloud sdkに関する設定
 gcloud:
   # google cloud sdkダウンロード用のURL
