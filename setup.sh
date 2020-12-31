@@ -96,6 +96,16 @@ ansible-playbook ansible/setup.yaml $ask_become_pass --extra-vars="set_config=$s
 
 export require_google_auth
 export on_wsl
-$wd/setup_gcloud.sh
+
+
+if [ "$require_google_auth" = "true" ]; then
+	no_browser=""
+	if [ "$on_wsl" = "true" ]; then
+		no_browser="--no-browser"
+	fi
+	$wd/setup_gcloud.sh $no_browser
+fi
+
+
 
 echo "インストールが完了しました。設定を反映するために再起動を行ってください"
