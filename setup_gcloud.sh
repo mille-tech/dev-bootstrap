@@ -19,7 +19,3 @@ $HOME/google-cloud-sdk/bin/gcloud init $console_only
 $HOME/google-cloud-sdk/bin/gcloud auth login $no_launch_browser
 $HOME/google-cloud-sdk/bin/gcloud auth application-default login $no_launch_browser
 $HOME/google-cloud-sdk/bin/gcloud auth configure-docker --quiet
-
-if [ "$require_google_auth" = "true" ]; then
-
-fi
