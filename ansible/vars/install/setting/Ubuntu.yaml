@@ -11,13 +11,16 @@ apt:
     - gpg
     - python3-pip
     - docker-ce
+    - podman
 
   # 追加するapt keyをここに記載する。独自のaptリポジトリを追加する際に設定する
   add_keys:
     - https://download.docker.com/linux/ubuntu/gpg
+    - "https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/xUbuntu_{{ Ubuntu_version.stdout }}/Release.key"
   # 追加するaptリポジトリ。独自のaptリポジトリを追加する
   add_repositories:
     - "deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ lsb_release.stdout }} stable"
+    - "deb https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/xUbuntu_{{ Ubuntu_version.stdout }}/ /"
 
 # gcloudの設定
 gcloud:
