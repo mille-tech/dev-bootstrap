@@ -1,6 +1,12 @@
 # Document https://docs.ansible.com/ansible/latest/collections/ansible/builtin/shell_module.html
-- name: Ubuntuのバージョン取得
+- name: Ubuntuのバージョンコードネーム取得
   shell: lsb_release -cs
   ignore_errors: true
   register: lsb_release
+  changed_when: false
+
+- name: Ubuntuのバージョンコードネーム取得
+  shell: lsb_release -rs
+  ignore_errors: true
+  register: Ubuntu_version
   changed_when: false
