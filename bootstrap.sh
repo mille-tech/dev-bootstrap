@@ -18,7 +18,7 @@ trap "
 author="mille-tech"
 repo_name="dev-bootstrap"
 repo_url="https://github.com/$author/$repo_name/archive/main.zip"
-wd="$extract_dir/$repo_name-master"
+wd="$extract_dir/$repo_name-main"
 if command -v curl > /dev/null 2>&1; then
 	curl -L --output $zip_file $repo_url
 elif command -v wget > /dev/null 2>&1; then
