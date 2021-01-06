@@ -15,9 +15,8 @@ trap "
 	rm -rf $extract_dir
 " 1 2 3 9 15 0
 
-#TODO 正式なレポジトリができたら変更する
-author="qwerty2501"
-repo_name="working-environment-bootstrap"
+author="mille-tech"
+repo_name="dev-bootstrap"
 repo_url="https://github.com/$author/$repo_name/archive/master.zip"
 wd="$extract_dir/$repo_name-master"
 if command -v curl > /dev/null 2>&1; then
