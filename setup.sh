@@ -46,7 +46,7 @@ if [ -z "$modify_config" ];then
 		echo -n "Y[es]/n[o]:"
 		read require_google_auth_yesno
 		case $require_google_auth_yesno in
-			Y|Yes)
+			Y|Yes|y|yes)
 				require_google_auth="true"
 			;;
 		esac
@@ -63,7 +63,7 @@ fi
 set_config="false"
 
 case $modify_config in
-	Y|Yes) echo "configの設定を行います"
+	Y|Yes|y|yes) echo "configの設定を行います"
 		set_config=true;;
 
 	*) echo "configの設定をキャンセルしました"
