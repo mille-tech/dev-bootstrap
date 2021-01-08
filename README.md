@@ -29,8 +29,16 @@ bash $b
 - asdf
 - terraform
 - git
-- docker(Ubuntu の場合は rootless)
+- docker
+- podman
+- buildah
 - pre-commit
+
+## 注意
+
+ツールが競合するため、以下のツールはインストールしないようにしてください
+
+- pyenv,goenv などの env 系のツール
 
 # Docker について
 
