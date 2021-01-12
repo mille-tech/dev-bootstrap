@@ -19,3 +19,8 @@ brew:
 gcloud:
   # google cloud sdkダウンロード用のURL
   download_url: "https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-{{ gcloud_sdk_version }}-darwin-x86_64.tar.gz?hl=JA"
+
+# cloud sql proxyの設定
+cloud_sql_proxy:
+  # cloud sql proxyのダウンロード用のURL
+  download_url: "https://dl.google.com/cloudsql/cloud_sql_proxy.darwin.amd64"
