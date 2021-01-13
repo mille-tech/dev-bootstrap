@@ -33,6 +33,7 @@ bash $b
 - podman
 - buildah
 - pre-commit
+- cloud_sql_proxy
 
 ## 注意
 

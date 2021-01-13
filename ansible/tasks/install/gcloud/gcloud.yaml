@@ -28,3 +28,20 @@
       shell: "{{ home }}/google-cloud-sdk/bin/gcloud components update --quiet"
   when:
     - gcloud_install.stdout == "" or force_install == "true"
+
+- name: cloud_sql_proxyインストール確認
+  shell: command -v cloud_sql_proxy
+  register: cloud_sql_proxy_install
+  changed_when: false
+  failed_when: false
+
+- name: cloud_sql_proxyインストール
+  block:
+    - name: cloud_sql_proxyダウンロード
+      get_url:
+        url: "{{ cloud_sql_proxy.download_url }}"
+        dest: /usr/local/bin/cloud_sql_proxy
+        mode: "755"
+      become: true
+
+  when: cloud_sql_proxy_install.stdout == ""
