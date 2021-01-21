@@ -10,6 +10,7 @@ asdf_plugins:
   - name: "nodejs"
   - name: "rust"
   - name: "golang"
+asdf_version: "v0.8.0"
 
 pip:
   install_apps:
