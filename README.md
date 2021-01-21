@@ -34,6 +34,7 @@ bash $b
 - buildah
 - pre-commit
 - cloud_sql_proxy
+- ansible-lint
 
 ## 注意
 
