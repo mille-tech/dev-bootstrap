@@ -14,3 +14,4 @@ asdf_plugins:
 pip:
   install_apps:
     - pre-commit
+    - ansible-lint
